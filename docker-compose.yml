@@ -1,0 +1,46 @@
+version: '3.8'
+services:
+  #api container
+  api:
+    build: api/
+    ports:
+      #local machine port to http
+      - 8083:80
+    networks:
+      - network1
+    depends_on:
+      - db
+  
+  #database container which is just an image from dockerhub
+  db:
+    image: mysql:8.0
+    command: --default-authentication-plugin=mysql_native_password
+    volumes:
+      #this gives me persistent data LFG 
+      - db_data:/var/lib/mysql 
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+    environment:
+      #bitwarden is for nerds
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: book_catalog
+    networks:
+      - network1
+  #front end container
+  web:
+    build: frontend/
+    ports:
+      - 8082:8080 
+    volumes:
+      - /app/node_modules
+      - .:/app
+    networks:
+      - network1
+volumes:
+  db_data: {}
+
+#using a custom networked worked even though the containers should be networked by default but idk why it wasnt working meh
+networks:
+  network1:
+
+
+
