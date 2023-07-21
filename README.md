@@ -47,22 +47,24 @@ This is probably the best part of the whole project. Because the frontend, backe
 Did everything in VS code on my arch linux box. 
 
 The process went pretty much like this:
-    1. Got a basic php API running on apache inside a docker container that was just hello world
-    2. Got a basic MySQL server running on a docker image pulled from dockerhub
-    3. Wrote the sql.init file you can see in my code which setup a simple table that had all the attributes necessary for a book catalog
-    4. Wrote the docker-compose.yml file and the dockerfile for the api (the api one needed to install sql on its debian system). The docker-compose script proved to be one of the most challenging portions of this project, as its pretty much the link between all aspects of the project. It has a weird syntax but is such an amazing way of containerizing full stack web applications
-    5. Started up the servers with the compose file and attempted queries to the database with curl on my local machine. It didn't work and continued to not work for like 7 hours until I banged my head against a wall the entire time and figured out how to network individual docker containers which was a joy
-    6. Eventually I had all 4 CRUD operations working with curl after seeing the appropriate JSON data
-    7. With the backend figured out, I begain the front-end with a hello world Vue.js app. 
-    8. I then added App.vue, main.js, store.js (for Vuex which handled the little state management I needed for the different routes)
-    9. I decided on five routes, one fo reach CRUD operation and one to display all books to the user. Each route was a vue component, and would only render a form for the CRUD operation on top of the basic page layout (navbar, three js sphere, etc)
-    10. I also needed a component for three js that would be included in App.vue, but that was kinda a nightmare to figure out at first so I put it off for later
-    11. Once I had routing setup and all my pages navigated correctly with the home UI still rendering, I moved on the making simple html forms and buttons to represent the CRUD operatiosn for each route
-    12. I then had the brain tearing task of connecting the front end to the backend, which involved dockerizing the vue app and incorporating it into the docker-compose.yml file (which was more networking stuff that gave me a headache). Then I put boilerplate in each route to performing the corresponsing CRUD action according to the backend API.
-    13. I started to FINALLY get JSON data to the frontend, and could move on to formatting the website with some custom css styles that I found with a lot of googling and my own adjustment.
-    14. With the app basically setup and my brain flooded with dopamine, I went to beating the crap out of three js until decided to render a rotating green cube that didn't interfere with any of my other html elements. 6 hours later I then made a sphere instead, and wrapped it with a great texture.
-    15. The last 7ish hours or so of the project involved debugging the hell out of all this stuff and making sure my app ran on other machines besdies my arch linux machine
-    16. Then my brain forcefully shut-off as it seemed to have rebelled against rest of the body.
+
+1. Got a basic php API running on apache inside a docker container that was just hello world
+2. Got a basic MySQL server running on a docker image pulled from dockerhub
+3. Wrote the sql.init file you can see in my code which setup a simple table that had all the attributes necessary for a book catalog
+4. Wrote the docker-compose.yml file and the dockerfile for the api (the api one needed to install sql on its debian system). The docker-compose script proved to be one of the most challenging portions of this project, as its pretty much the link between all aspects of the project. It has a weird syntax but is such an amazing way of containerizing full stack web applications
+5. Started up the servers with the compose file and attempted queries to the database with curl on my local machine. It didn't work and continued to not work for like 7 hours until I banged my head against a wall the entire time and figured out how to network individual docker containers which was a joy
+6. Eventually I had all 4 CRUD operations working with curl after seeing the appropriate JSON data
+7. With the backend figured out, I begain the front-end with a hello world Vue.js app. 
+8. I then added App.vue, main.js, store.js (for Vuex which handled the little state management I needed for the different routes)
+9. I decided on five routes, one fo reach CRUD operation and one to display all books to the user. Each route was a vue component, and would only render a form for the CRUD operation on top of the basic page layout (navbar, three js sphere, etc)
+10. I also needed a component for three js that would be included in App.vue, but that was kinda a nightmare to figure out at first so I put it off for later
+11. Once I had routing setup and all my pages navigated correctly with the home UI still rendering, I moved on the making simple html forms and buttons to represent the CRUD operatiosn for each route
+12. I then had the brain tearing task of connecting the front end to the backend, which involved dockerizing the vue app and incorporating it into the docker-compose.yml file (which was more networking stuff that gave me a headache). Then I put boilerplate in each route to performing the corresponsing CRUD action according to the backend API.
+13. I started to FINALLY get JSON data to the frontend, and could move on to formatting the website with some custom css styles that I found with a lot of googling and my own adjustment.
+14. With the app basically setup and my brain flooded with dopamine, I went to beating the crap out of three js until decided to render a rotating green cube that didn't interfere with any of my other html elements. 6 hours later I then made a sphere instead, and wrapped it with a great texture.
+15. The last 7ish hours or so of the project involved debugging the hell out of all this stuff and making sure my app ran on other machines besdies my arch linux machine
+16. Then my brain forcefully shut-off as it seemed to have rebelled against rest of the body.
+
 
 ## Instructions to Run the Application
 
