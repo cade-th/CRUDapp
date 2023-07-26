@@ -73,7 +73,7 @@ export default {
 
 /* Updated styles for the navbar */
 .nav {
-  text-align: center; /
+  text-align: center; 
 }
 
 /*updated styles for the nav-link */
